@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Front</title>
+    <link rel="stylesheet" href="what.css">
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="none,noarchive" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1>Contacts</h1>
+            </div>
+            <div class="contacts">
+                <div class="contact">John Doe</div>
+                <div class="contact">Jane Smith</div>
+                <div class="contact">Alice Johnson</div>
+                <div class="contact">Bob Brown</div>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="chat-header">
+                <h1>Chat with John Doe</h1>
+            </div>
+            <div class="chat-container" id="chat-container">
+                <div class="message received">Hello!</div>
+                <div class="message sent">Hi there!</div>
+                <div class="message received">How are you?</div>
+                <div class="message sent">I'm good, thanks! How about you?</div>
+            </div>
+            <div class="chat-footer">
+                <input type="text" id="message-input" placeholder="Type a message">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var messageInput = document.getElementById('message-input');
+            var messageText = messageInput.value.trim();
+            if (messageText !== '') {
+                var messageElement = document.createElement('div');
+                messageElement.className = 'message sent';
+                messageElement.textContent = messageText;
+                document.getElementById('chat-container').appendChild(messageElement);
+                messageInput.value = '';
+                messageElement.scrollIntoView();
+            }
+        }
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>
